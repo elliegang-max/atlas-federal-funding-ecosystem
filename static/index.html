@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas — Federal Funding Ecosystem</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="brand"><b>Atlas</b> <span>Federal Funding Ecosystem</span></div>
+  <nav class="tabs">
+    <a href="/" class="on">Ecosystem map</a>
+    <a href="/match">Find my funding</a>
+  </nav>
+  <div class="bar-right">
+    <div class="bar-stat"><b id="statNodes">—</b> organizations</div>
+    <div class="bar-stat"><b id="statVenture">—</b> with venture arms</div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="controls">
+    <div class="ctl-group">
+      <h3>Search</h3>
+      <input type="search" id="search" placeholder="NIH, gene therapy, SBIR…" autocomplete="off">
+    </div>
+
+    <div class="ctl-group">
+      <h3>Filter</h3>
+      <label class="check">
+        <input type="checkbox" id="ventureOnly"> Only bodies that fund companies
+      </label>
+      <label class="check">
+        <input type="checkbox" id="bigChecks"> Writes $1M or more
+      </label>
+    </div>
+
+    <div class="ctl-group">
+      <h3>Sector</h3>
+      <select id="sector">
+        <option value="">All sectors</option>
+      </select>
+    </div>
+
+    <div class="ctl-group">
+      <h3>Departments</h3>
+      <div id="legend"></div>
+    </div>
+
+    <div class="ctl-group">
+      <h3>About</h3>
+      <p class="small muted" style="margin:0">
+        Every organization here was placed by hand. The profiles behind each one
+        were researched by an agent and carry their own sources and confidence.
+      </p>
+      <p class="small muted" id="builtAt" style="margin:8px 0 0"></p>
+    </div>
+  </aside>
+
+  <main class="canvas">
+    <svg id="map"></svg>
+    <div class="hint">Click an organization for its profile · drag to rearrange · scroll to zoom</div>
+  </main>
+
+  <aside class="detail" id="detail">
+    <div id="detailContent"></div>
+  </aside>
+
+</div>
+
+<script>
+const GROUP_COLORS = {
+  "hhs":      "#e0485a",
+  "dod":      "#3b6fd4",
+  "doe":      "#e8a33d",
+  "nsf":      "#149e73",
+  "nasa":     "#7c5cd4",
+  "doc":      "#2e94b9",
+  "dhs":      "#b5519e",
+  "usda":     "#8b5e3c",
+  "dot":      "#7a8b99",
+  "epa":      "#4a7fd4",
+  "ed":       "#c2651f",
+  "sba":      "#2b4a8b",
+  "ic":       "#2f7a3f",
+  "treasury": "#0f766e",
+  "root":     "#0f2a4a"
+};
+const GROUP_LABELS = {
+  "hhs":"Health & Human Services","dod":"Defense","doe":"Energy","nsf":"NSF",
+  "nasa":"NASA","doc":"Commerce","dhs":"Homeland Security","usda":"Agriculture",
+  "dot":"Transportation","epa":"EPA","ed":"Education","sba":"Small Business Admin",
+  "ic":"Intelligence & strategic","treasury":"Treasury"
+};
+
+const color = g => GROUP_COLORS[g] || "#94a3b8";
+const radius = d => d.level === "root" ? 24 : d.level === "department" ? 15 : d.level === "agency" ? 8 : 6.5;
+
+let NODES = [], LINKS = [], byId = new Map(), hiddenGroups = new Set();
+
+const svg = d3.select("#map");
+const root = svg.append("g");
+const linkLayer = root.append("g").attr("class", "links");
+const nodeLayer = root.append("g").attr("class", "nodes");
+
+const zoom = d3.zoom().scaleExtent([0.2, 4]).on("zoom", e => root.attr("transform", e.transform));
+svg.call(zoom);
+
+function size() {
+  const el = document.querySelector("main.canvas");
+  return [el.clientWidth, el.clientHeight];
+}
+
+// Radius per depth. A radial tree keeps every sibling group in its own wedge,
+// which is what stops 118 labels from piling on top of each other the way a
+// free force layout does.
+const DEPTH_RADIUS = [0, 225, 378, 496, 566];
+
+async function boot() {
+  const res = await fetch("/api/graph");
+  const data = await res.json();
+
+  NODES = data.nodes.map(n => ({...n}));
+  byId = new Map(NODES.map(n => [n.id, n]));
+  LINKS = NODES.filter(n => n.parent_id && byId.has(n.parent_id))
+               .map(n => ({source: byId.get(n.parent_id), target: n}));
+
+  document.getElementById("statNodes").textContent = NODES.length;
+  document.getElementById("statVenture").textContent = NODES.filter(n => n.has_venture_arm).length;
+  if (data.meta && data.meta.built_at) {
+    document.getElementById("builtAt").textContent =
+      "Graph built " + data.meta.built_at.slice(0, 10) + " with " + data.meta.model + ".";
+  }
+
+  const sectors = [...new Set(NODES.flatMap(n => n.sectors))].sort();
+  const sel = document.getElementById("sector");
+  sectors.forEach(s => {
+    const o = document.createElement("option");
+    o.value = s; o.textContent = s.replace(/-/g, " ");
+    sel.appendChild(o);
+  });
+
+  const legend = document.getElementById("legend");
+  const groups = [...new Set(NODES.map(n => n.group))].filter(g => g !== "root");
+  groups.sort((a, b) => (GROUP_LABELS[a] || a).localeCompare(GROUP_LABELS[b] || b));
+  groups.forEach(g => {
+    const row = document.createElement("div");
+    row.className = "legend-item";
+    row.innerHTML = `<span class="dot" style="background:${color(g)}"></span>
+                     <span>${GROUP_LABELS[g] || g}</span>
+                     <span style="margin-left:auto;color:var(--faint);font-size:11px">
+                       ${NODES.filter(n => n.group === g).length}</span>`;
+    row.onclick = () => {
+      if (hiddenGroups.has(g)) hiddenGroups.delete(g); else hiddenGroups.add(g);
+      row.classList.toggle("off");
+      applyFilters();
+    };
+    legend.appendChild(row);
+  });
+
+  layout();
+  draw();
+  fitToScreen();
+  applyFilters();
+}
+
+function layout() {
+  const kids = new Map();
+  NODES.forEach(n => {
+    if (!n.parent_id) return;
+    if (!kids.has(n.parent_id)) kids.set(n.parent_id, []);
+    kids.get(n.parent_id).push(n);
+  });
+
+  const leafMemo = new Map();
+  function leaves(n) {
+    if (leafMemo.has(n.id)) return leafMemo.get(n.id);
+    const cs = kids.get(n.id) || [];
+    const v = cs.length ? cs.reduce((s, c) => s + leaves(c), 0) : 1;
+    leafMemo.set(n.id, v);
+    return v;
+  }
+
+  // Angle is shared out in proportion to how many leaves sit inside a
+  // subtree, so every leaf on the map gets the same slice of arc and nothing
+  // collapses into an unreadable crush. The one exception is the ring of
+  // departments: a pure proportional split gives HHS's 47 nodes twenty times
+  // Treasury's two and squeezes the small departments to a sliver, so each
+  // department is guaranteed a floor and the rest is shared proportionally.
+  const DEPT_FLOOR = 2 * Math.PI * 0.03;
+
+  function allocate(n, a0, a1, depth) {
+    const mid = (a0 + a1) / 2 - Math.PI / 2;
+    const r = DEPTH_RADIUS[Math.min(depth, DEPTH_RADIUS.length - 1)];
+    n.angle = mid;
+    n.depth = depth;
+    n.x = Math.cos(mid) * r;
+    n.y = Math.sin(mid) * r;
+
+    const cs = kids.get(n.id) || [];
+    if (!cs.length) return;
+
+    const counts = cs.map(c => leaves(c));
+    const total = counts.reduce((a, b) => a + b, 0);
+    const width = a1 - a0;
+
+    let spans;
+    if (depth === 0) {
+      const free = Math.max(0, width - DEPT_FLOOR * cs.length);
+      spans = counts.map(c => DEPT_FLOOR + free * (c / total));
+    } else {
+      spans = counts.map(c => width * (c / total));
+    }
+
+    let a = a0;
+    cs.forEach((c, i) => {
+      allocate(c, a, a + spans[i], depth + 1);
+      a += spans[i];
+    });
+  }
+
+  const rootNode = NODES.find(n => !n.parent_id);
+  allocate(rootNode, 0, 2 * Math.PI, 0);
+}
+
+function fitToScreen() {
+  const [w, h] = size();
+  svg.attr("viewBox", [0, 0, w, h]);
+  const span = DEPTH_RADIUS[DEPTH_RADIUS.length - 1] * 2 + 180;
+  const k = Math.min(w / span, h / span, 1.25);
+  svg.call(zoom.transform,
+    d3.zoomIdentity.translate(w / 2, h / 2).scale(k));
+}
+
+function refresh() {
+  linkLayer.selectAll("line")
+    .attr("x1", d => d.source.x).attr("y1", d => d.source.y)
+    .attr("x2", d => d.target.x).attr("y2", d => d.target.y);
+  nodeLayer.selectAll("g.n").attr("transform", d => `translate(${d.x},${d.y})`);
+}
+
+function draw() {
+  linkLayer.selectAll("line").data(LINKS).join("line")
+    .attr("stroke", "#cbd5e1").attr("stroke-width", 1).attr("stroke-opacity", .6);
+
+  const node = nodeLayer.selectAll("g.n").data(NODES, d => d.id).join(
+    enter => {
+      const g = enter.append("g").attr("class", "n").style("cursor", "pointer");
+
+      g.filter(d => d.level === "root" || d.level === "department")
+        .append("circle").attr("class", "ring")
+        .attr("r", d => radius(d))
+        .attr("fill", d => d.level === "root" ? color("root") : "#fff")
+        .attr("stroke", d => color(d.group))
+        .attr("stroke-width", d => d.level === "root" ? 0 : 2.6);
+
+      g.filter(d => d.level === "department")
+        .append("circle").attr("r", 4.6).attr("fill", d => color(d.group));
+
+      g.filter(d => d.level === "root")
+        .append("text").attr("text-anchor", "middle").attr("dy", "0.36em")
+        .attr("font-size", 20).attr("fill", "#fff").text("\u{1F3DB}");
+
+      g.filter(d => d.level !== "root" && d.level !== "department")
+        .append("circle").attr("class", "ring")
+        .attr("r", d => radius(d))
+        .attr("fill", d => color(d.group))
+        .attr("stroke", "#fff").attr("stroke-width", 1.4);
+
+      // Leaf labels run outward along their own spoke and flip side at the
+      // vertical, which is what keeps them from colliding.
+      g.append("text").attr("class", "lbl")
+        .each(function (d) {
+          const t = d3.select(this);
+          if (d.level === "root" || d.level === "department") {
+            t.attr("text-anchor", "middle")
+             .attr("dy", -(radius(d) + 8))
+             .attr("font-size", d.level === "root" ? 14 : 13.5)
+             .attr("font-weight", 700)
+             .attr("fill", "#0f2a4a");
+          } else {
+            // Each leaf owns its own slice of arc, so a label laid along that
+            // slice can never collide with its neighbours — which horizontal
+            // labels do badly near the top and bottom of the circle, where
+            // adjacent spokes are only a few pixels apart vertically.
+            const deg = d.angle * 180 / Math.PI;
+            const rightSide = Math.cos(d.angle) >= 0;
+            t.attr("text-anchor", rightSide ? "start" : "end")
+             .attr("dy", "0.32em")
+             .attr("transform",
+                   `rotate(${deg}) translate(${radius(d) + 7},0)` +
+                   (rightSide ? "" : " rotate(180)"))
+             .attr("font-size", 11.5)
+             .attr("font-weight", 500)
+             .attr("fill", "#334155");
+          }
+          t.text(d.name);
+        });
+
+      g.append("title").text(d => d.full_name);
+      return g;
+    }
+  );
+
+  node.on("click", (e, d) => { e.stopPropagation(); select(d.id); });
+
+  node.call(d3.drag()
+    .on("drag", (e, d) => { d.x = e.x; d.y = e.y; refresh(); }));
+
+  refresh();
+  svg.on("click", () => closeDetail());
+}
+
+function matchesFilters(d) {
+  if (d.level === "root") return true;
+  if (hiddenGroups.has(d.group)) return false;
+  if (document.getElementById("ventureOnly").checked && !d.has_venture_arm) return false;
+  if (document.getElementById("bigChecks").checked && d.max_check_usd < 1000000) return false;
+  const sector = document.getElementById("sector").value;
+  if (sector && !d.sectors.includes(sector)) return false;
+  const q = document.getElementById("search").value.trim().toLowerCase();
+  if (q && !(d.name + " " + d.full_name + " " + d.sectors.join(" ")).toLowerCase().includes(q)) return false;
+  return true;
+}
+
+function applyFilters() {
+  // Filtering dims rather than removes, so the shape of the ecosystem stays
+  // legible and you can see what you filtered out.
+  nodeLayer.selectAll("g.n")
+    .attr("opacity", d => matchesFilters(d) ? 1 : .11)
+    .style("pointer-events", d => matchesFilters(d) ? "all" : "none");
+  linkLayer.selectAll("line")
+    .attr("stroke-opacity", d => (matchesFilters(d.source) && matchesFilters(d.target)) ? .55 : .06);
+}
+
+["search", "sector"].forEach(id =>
+  document.getElementById(id).addEventListener("input", applyFilters));
+["ventureOnly", "bigChecks"].forEach(id =>
+  document.getElementById(id).addEventListener("change", applyFilters));
+
+// ---------- detail panel ----------
+
+const usd = n => !n ? "—" : n >= 1e9 ? "$" + (n / 1e9).toFixed(1) + "B"
+                  : n >= 1e6 ? "$" + (n / 1e6).toFixed(n % 1e6 ? 1 : 0) + "M"
+                  : n >= 1e3 ? "$" + Math.round(n / 1e3) + "K" : "$" + n;
+const band = c => (c.min_usd && c.max_usd) ? usd(c.min_usd) + " \u2013 " + usd(c.max_usd)
+              : c.max_usd ? "up to " + usd(c.max_usd)
+              : c.min_usd ? "from " + usd(c.min_usd) : "not published";
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function closeDetail() {
+  document.getElementById("detail").classList.remove("open");
+  requestAnimationFrame(fitToScreen);
+  nodeLayer.selectAll("g.n").select("circle.ring").attr("stroke-width",
+    d => d.level === "root" ? 0 : d.level === "department" ? 2.6 : 1.4);
+}
+
+async function select(id) {
+  const res = await fetch("/api/node/" + encodeURIComponent(id));
+  if (!res.ok) return;
+  const {node, path, children} = await res.json();
+  const p = node.profile;
+
+  nodeLayer.selectAll("g.n").select("circle.ring")
+    .attr("stroke", d => d.id === id ? "#0f2a4a"
+          : (d.level === "root" || d.level === "department") ? color(d.group) : "#fff")
+    .attr("stroke-width", d => d.id === id ? 3.4
+          : d.level === "root" ? 0 : d.level === "department" ? 2.6 : 1.4);
+
+  const confPill = {high: "good", medium: "warn", low: "bad"}[p.confidence] || "";
+
+  const checks = p.check_sizes.length ? p.check_sizes.map(c => `
+    <div class="check-row">
+      <span>${esc(c.label)}${c.note ? `<br><span class="small muted">${esc(c.note)}</span>` : ""}</span>
+      <span class="amt">${band(c)}${
+        c.duration_months ? `<br><span class="small muted" style="font-weight:400">${c.duration_months} months</span>` : ""}</span>
+    </div>`).join("") : `<p class="muted small">No award sizes published for this organization.</p>`;
+
+  const contacts = p.contacts.length ? p.contacts.map(c => `
+    <div class="contact ${c.verify_before_use ? "unverified" : ""}">
+      <div class="cname">${esc(c.name === "unknown" ? "Programme contact" : c.name)}</div>
+      ${c.title && c.title !== "unknown" ? `<div class="ctitle">${esc(c.title)}</div>` : ""}
+      <div class="cmeta">
+        ${c.email ? `<a href="mailto:${esc(c.email)}">${esc(c.email)}</a>` : ""}
+        ${c.phone ? ` · ${esc(c.phone)}` : ""}
+        ${c.source_url ? `${c.email || c.phone ? "<br>" : ""}<a href="${esc(c.source_url)}" target="_blank" rel="noopener">${esc(c.source_url.slice(0, 54))}</a>` : ""}
+      </div>
+      ${c.verify_before_use ? `<div class="verify-note"><span>&#9888;</span>
+        <span>Confirm on the official page before you reach out — this was not verified against a live source.</span></div>` : ""}
+    </div>`).join("")
+    : `<p class="muted small">No contact point captured. Start from the homepage above.</p>`;
+
+  document.getElementById("detailContent").innerHTML = `
+    <div class="detail-head">
+      <button class="close-x" onclick="closeDetail()">&times;</button>
+      <div class="crumb">${path.map(x => esc(x.name)).join(" &rsaquo; ") || "Top level"}</div>
+      <h2>${esc(node.name)}</h2>
+      <div class="full">${esc(node.full_name)}</div>
+      <div class="tags">
+        ${p.has_venture_arm ? `<span class="pill good">funds companies</span>`
+                            : `<span class="pill">no venture arm</span>`}
+        <span class="pill ${confPill}">${esc(p.confidence)} confidence</span>
+        ${node.sectors.slice(0, 3).map(s => `<span class="pill">${esc(s.replace(/-/g, " "))}</span>`).join("")}
+      </div>
+    </div>
+
+    <div class="detail-body">
+      <div class="field">
+        <h4>Overview</h4>
+        <p>${esc(p.overview)}</p>
+        ${node.homepage ? `<p><a href="${esc(node.homepage)}" target="_blank" rel="noopener">${esc(node.homepage)}</a></p>` : ""}
+      </div>
+
+      <div class="field">
+        <h4>Venture arm</h4>
+        <p>${esc(p.venture_arm)}</p>
+        ${p.funding_kinds.length ? `<div class="tags">${p.funding_kinds.map(k => `<span class="pill">${esc(k.replace(/-/g, " "))}</span>`).join(" ")}</div>` : ""}
+      </div>
+
+      <div class="field">
+        <h4>Check size</h4>
+        ${checks}
+        ${p.annual_budget_usd ? `<p class="small muted" style="margin-top:8px">
+            Annual budget around <b>${usd(p.annual_budget_usd)}</b>. ${esc(p.annual_budget_note)}</p>`
+          : (p.annual_budget_note ? `<p class="small muted" style="margin-top:8px">${esc(p.annual_budget_note)}</p>` : "")}
+      </div>
+
+      <div class="field">
+        <h4>Application timeline</h4>
+        <p>${esc(p.application_timeline)}</p>
+      </div>
+
+      <div class="field">
+        <h4>Key personnel &amp; contact</h4>
+        ${contacts}
+      </div>
+
+      <div class="field">
+        <h4>How it relates to the rest</h4>
+        <p>${esc(p.relationship_note)}</p>
+        ${children.length ? `<p class="small muted">Contains ${children.length} organization${children.length > 1 ? "s" : ""} on this map:
+          ${children.map(c => `<a href="#" onclick="select('${esc(c.id)}');return false">${esc(c.name)}</a>`).join(", ")}</p>` : ""}
+      </div>
+
+      <div class="field">
+        <h4>What it funds</h4>
+        <ul>${p.focus_areas.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
+      </div>
+
+      <div class="field">
+        <h4>Eligibility</h4>
+        <p>${esc(p.eligibility)}</p>
+      </div>
+
+      ${p.materials_required.length ? `<div class="field">
+        <h4>Application materials</h4>
+        <ul>${p.materials_required.map(m => `<li>${esc(m)}</li>`).join("")}</ul>
+      </div>` : ""}
+
+      <div class="field">
+        <h4>Sources</h4>
+        ${p.source_urls.map(u => `<a class="src" href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a>`).join("") || `<span class="small muted">None recorded.</span>`}
+      </div>
+
+      <div class="field">
+        <div class="provenance">
+          Researched by <b>${esc(node.model)}</b> on ${esc(node.retrieved_at.slice(0, 10))},
+          confidence <b>${esc(p.confidence)}</b>.
+          ${p.uncertainty_note ? `<br><br><b>Least reliable here:</b> ${esc(p.uncertainty_note)}` : ""}
+          <br><br>Verify figures and contacts against the official pages above before acting on them.
+        </div>
+      </div>
+    </div>`;
+
+  document.getElementById("detail").classList.add("open");
+  requestAnimationFrame(fitToScreen);
+}
+
+window.select = select;
+window.closeDetail = closeDetail;
+window.addEventListener("resize", fitToScreen);
+
+boot();
+</script>
+</body>
+</html>

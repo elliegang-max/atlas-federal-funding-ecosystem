@@ -1,0 +1,1949 @@
+{
+  "checked_at": "2026-10-26T19:14:51+00:00",
+  "urls_checked": 168,
+  "counts": {
+    "ok": 116,
+    "dead (404)": 31,
+    "unreachable": 3,
+    "blocked (401/403)": 18
+  },
+  "affected_organizations": [
+    "ahrq",
+    "arpa-h-openbaa",
+    "aspr",
+    "barda-ventures",
+    "cdrh-tap",
+    "chips-rd",
+    "doe",
+    "doe-lpo",
+    "eere",
+    "fda",
+    "fda-pdc",
+    "leep",
+    "mcdc",
+    "nasa",
+    "nccih",
+    "nei",
+    "nichd",
+    "nidcd",
+    "niddk",
+    "nih-icorps",
+    "nimh",
+    "ninds",
+    "nist-mep",
+    "noaa",
+    "nsf-pfi",
+    "nsf-seedfund",
+    "nsin",
+    "sba",
+    "usda",
+    "usda-nifa",
+    "usda-sbir"
+  ],
+  "rows": [
+    {
+      "url": "https://acl.gov/",
+      "status": 200,
+      "final": "https://acl.gov/",
+      "error": "",
+      "cited_by": [
+        "acl",
+        "acl (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://acl.gov/about-acl/contact-us",
+      "status": 200,
+      "final": "https://acl.gov/contact-us",
+      "error": "",
+      "cited_by": [
+        "acl",
+        "acl"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://acl.gov/programs/nidilrr",
+      "status": 200,
+      "final": "https://acl.gov/about-acl/about-national-institute-disability-independent-living-and-rehabilitation-research",
+      "error": "",
+      "cited_by": [
+        "acl"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://afwerx.com/",
+      "status": 200,
+      "final": "https://afwerx.com/",
+      "error": "",
+      "cited_by": [
+        "afwerx",
+        "afwerx",
+        "afwerx (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://armysbir.army.mil/",
+      "status": 200,
+      "final": "https://armysbir.army.mil/",
+      "error": "",
+      "cited_by": [
+        "army-sbir",
+        "army-sbir",
+        "army-sbir (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://arpa-e.energy.gov/",
+      "status": 200,
+      "final": "https://arpa-e.energy.gov/",
+      "error": "",
+      "cited_by": [
+        "doe",
+        "arpa-e",
+        "arpa-e",
+        "arpa-e (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://arpa-h.gov/",
+      "status": 200,
+      "final": "https://arpa-h.gov/",
+      "error": "",
+      "cited_by": [
+        "arpa-h",
+        "arpa-h (seed homepage)",
+        "arpa-h-patio",
+        "arpa-h-patio (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://arpa-h.gov/engage-and-transition/funding",
+      "status": 404,
+      "final": "https://arpa-h.gov/engage-and-transition/funding",
+      "error": "",
+      "cited_by": [
+        "arpa-h-openbaa",
+        "arpa-h-openbaa",
+        "arpa-h-openbaa (seed homepage)"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://aspr.hhs.gov/",
+      "status": 200,
+      "final": "https://www.aspr.gov/",
+      "error": "",
+      "cited_by": [
+        "aspr",
+        "aspr (seed homepage)",
+        "barda-bioshield",
+        "barda-bioshield (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://aspr.hhs.gov/BARDA/Pages/default.aspx",
+      "status": 404,
+      "final": "https://www.aspr.gov/BARDA/Pages/default.aspx",
+      "error": "",
+      "cited_by": [
+        "aspr"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://cdmrp.health.mil/",
+      "status": 200,
+      "final": "https://cdmrp.health.mil/",
+      "error": "",
+      "cited_by": [
+        "cdmrp",
+        "cdmrp",
+        "cdmrp (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://cdmrp.health.mil/funding/default",
+      "status": 200,
+      "final": "https://cdmrp.health.mil/funding/default",
+      "error": "",
+      "cited_by": [
+        "cdmrp"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://drive.hhs.gov/",
+      "status": 200,
+      "final": "https://drive.hhs.gov/",
+      "error": "",
+      "cited_by": [
+        "aspr",
+        "barda-drive",
+        "barda-drive",
+        "barda-drive (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://drive.hhs.gov/bardaventures.html",
+      "status": 404,
+      "final": "https://drive.hhs.gov/bardaventures.html",
+      "error": "",
+      "cited_by": [
+        "barda-ventures",
+        "barda-ventures",
+        "barda-ventures (seed homepage)"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://grants.nih.gov/",
+      "status": 200,
+      "final": "https://grants.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "ninr"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://grants.nih.gov/funding/activity-codes/sbir-sttr.htm",
+      "status": 200,
+      "final": "https://grants.nih.gov/funding/activity-codes/sbir-sttr.htm",
+      "error": "",
+      "cited_by": [
+        "nih"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://home.treasury.gov/",
+      "status": 200,
+      "final": "https://home.treasury.gov/",
+      "error": "",
+      "cited_by": [
+        "treasury",
+        "treasury (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://home.treasury.gov/policy-issues/small-business-programs/state-small-business-credit-initiative-ssbci",
+      "status": 200,
+      "final": "https://home.treasury.gov/policy-issues/small-business-programs/state-small-business-credit-initiative-ssbci",
+      "error": "",
+      "cited_by": [
+        "treasury",
+        "treasury",
+        "ssbci",
+        "ssbci (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://ies.ed.gov/",
+      "status": 200,
+      "final": "https://ies.ed.gov/",
+      "error": "",
+      "cited_by": [
+        "ies-sbir"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://ies.ed.gov/sbir/",
+      "status": 200,
+      "final": "https://ies.ed.gov/funding/research/programs/small-business-innovation-research-sbir",
+      "error": "",
+      "cited_by": [
+        "ed",
+        "ed",
+        "ies-sbir",
+        "ies-sbir",
+        "ies-sbir (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://medcbrn.org/",
+      "status": 0,
+      "final": "https://medcbrn.org/",
+      "error": "no response",
+      "cited_by": [
+        "mcdc",
+        "mcdc",
+        "mcdc (seed homepage)"
+      ],
+      "verdict": "unreachable"
+    },
+    {
+      "url": "https://mrdc.health.mil/",
+      "status": 200,
+      "final": "https://mrdc.health.mil/",
+      "error": "",
+      "cited_by": [
+        "usamrdc",
+        "usamrdc (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://mtec-sc.org/",
+      "status": 200,
+      "final": "https://mtec-sc.org/",
+      "error": "",
+      "cited_by": [
+        "mtec",
+        "mtec",
+        "mtec (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://ncats.nih.gov/",
+      "status": 200,
+      "final": "https://ncats.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "ncats",
+        "ncats (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://new.nsf.gov/funding/initiatives/convergence-accelerator",
+      "status": 200,
+      "final": "https://www.nsf.gov/funding/initiatives/convergence-accelerator",
+      "error": "",
+      "cited_by": [
+        "nsf-ca",
+        "nsf-ca",
+        "nsf-ca (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://new.nsf.gov/funding/initiatives/i-corps",
+      "status": 200,
+      "final": "https://www.nsf.gov/funding/initiatives/i-corps",
+      "error": "",
+      "cited_by": [
+        "nsf-icorps",
+        "nsf-icorps (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://new.nsf.gov/funding/initiatives/regional-innovation-engines",
+      "status": 200,
+      "final": "https://www.nsf.gov/funding/initiatives/regional-innovation-engines",
+      "error": "",
+      "cited_by": [
+        "nsf-engines",
+        "nsf-engines (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://new.nsf.gov/funding/opportunities/pfi-partnerships-innovation",
+      "status": 404,
+      "final": "https://www.nsf.gov/funding/opportunities/pfi-partnerships-innovation",
+      "error": "",
+      "cited_by": [
+        "nsf-pfi",
+        "nsf-pfi",
+        "nsf-pfi (seed homepage)"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://nida.nih.gov/",
+      "status": 200,
+      "final": "https://nida.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nida",
+        "nida (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://nida.nih.gov/about-nida/contact-us",
+      "status": 200,
+      "final": "https://nida.nih.gov/about-nida/contact-us",
+      "error": "",
+      "cited_by": [
+        "nida",
+        "nida"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://sbir.cancer.gov/",
+      "status": 200,
+      "final": "https://sbir.cancer.gov/",
+      "error": "",
+      "cited_by": [
+        "nci",
+        "nci",
+        "nci-sbir",
+        "nci-sbir",
+        "nci-sbir (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://sbir.nasa.gov/",
+      "status": 200,
+      "final": "https://www.nasa.gov/sbir_sttr/",
+      "error": "",
+      "cited_by": [
+        "nasa",
+        "nasa",
+        "nasa-sbir",
+        "nasa-sbir (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://sbir.nih.gov/",
+      "status": 200,
+      "final": "https://seed.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nih-sbir",
+        "nih-sbir",
+        "nih-sbir (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://science.osti.gov/sbir",
+      "status": 200,
+      "final": "https://science.osti.gov/sbir",
+      "error": "",
+      "cited_by": [
+        "doe",
+        "doe",
+        "doe-sbir",
+        "doe-sbir",
+        "doe-sbir (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://seed.nih.gov/",
+      "status": 200,
+      "final": "https://seed.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nih",
+        "nih",
+        "nih-sbir",
+        "nih-seed",
+        "nih-seed",
+        "nih-seed (seed homepage)",
+        "nih-icorps",
+        "niaid",
+        "nidcd",
+        "nigms",
+        "ninr"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://seed.nih.gov/small-business-funding",
+      "status": 200,
+      "final": "https://seed.nih.gov/small-business-funding",
+      "error": "",
+      "cited_by": [
+        "nih",
+        "nida",
+        "nidcr"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://seed.nih.gov/support-for-entrepreneurs/i-corps",
+      "status": 404,
+      "final": "https://seed.nih.gov/support-for-entrepreneurs/i-corps",
+      "error": "",
+      "cited_by": [
+        "nih-icorps",
+        "nih-icorps",
+        "nih-icorps (seed homepage)"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://seedfund.nsf.gov/",
+      "status": 200,
+      "final": "https://seedfund.nsf.gov/",
+      "error": "",
+      "cited_by": [
+        "nsf",
+        "nsf",
+        "nsf-tip",
+        "nsf-seedfund",
+        "nsf-seedfund",
+        "nsf-seedfund (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://seedfund.nsf.gov/apply/",
+      "status": 200,
+      "final": "https://seedfund.nsf.gov/apply/",
+      "error": "",
+      "cited_by": [
+        "nsf-seedfund"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://seedfund.nsf.gov/resources/",
+      "status": 404,
+      "final": "https://seedfund.nsf.gov/resources/",
+      "error": "",
+      "cited_by": [
+        "nsf-seedfund"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://spacewerx.us/",
+      "status": 200,
+      "final": "https://spacewerx.us/",
+      "error": "",
+      "cited_by": [
+        "spacewerx",
+        "spacewerx (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://technology.nasa.gov/",
+      "status": 200,
+      "final": "https://technology.nasa.gov/",
+      "error": "",
+      "cited_by": [
+        "nasa",
+        "nasa-t2",
+        "nasa-t2",
+        "nasa-t2 (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://techpartnerships.noaa.gov/sbir/",
+      "status": 200,
+      "final": "https://techpartnerships.noaa.gov/sbir/",
+      "error": "",
+      "cited_by": [
+        "noaa-sbir",
+        "noaa-sbir",
+        "noaa-sbir (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.ahrq.gov/",
+      "status": 200,
+      "final": "https://www.ahrq.gov/",
+      "error": "",
+      "cited_by": [
+        "ahrq",
+        "ahrq (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.ahrq.gov/funding/contracting/small-business/index.html",
+      "status": 404,
+      "final": "https://www.ahrq.gov/funding/contracting/small-business/index.html",
+      "error": "",
+      "cited_by": [
+        "ahrq"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.cancer.gov/",
+      "status": 200,
+      "final": "https://www.cancer.gov/",
+      "error": "",
+      "cited_by": [
+        "nci",
+        "nci (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.cdc.gov/",
+      "status": 403,
+      "final": "https://www.cdc.gov/",
+      "error": "",
+      "cited_by": [
+        "cdc",
+        "cdc (seed homepage)",
+        "cdc-sbir",
+        "cdc-sbir (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.cdc.gov/sbir/",
+      "status": 403,
+      "final": "https://www.cdc.gov/sbir/",
+      "error": "",
+      "cited_by": [
+        "cdc"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.cms.gov/priorities/innovation/",
+      "status": 200,
+      "final": "https://www.cms.gov/priorities/innovation/overview",
+      "error": "",
+      "cited_by": [
+        "cms-cmmi",
+        "cms-cmmi (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.commerce.gov/",
+      "status": 403,
+      "final": "https://www.commerce.gov/",
+      "error": "",
+      "cited_by": [
+        "doc",
+        "doc (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.cto.mil/osc/",
+      "status": 200,
+      "final": "https://www.cto.mil/osc/",
+      "error": "",
+      "cited_by": [
+        "osc",
+        "osc",
+        "osc (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.darpa.mil/",
+      "status": 200,
+      "final": "https://www.darpa.mil/",
+      "error": "",
+      "cited_by": [
+        "darpa",
+        "darpa",
+        "darpa (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.defense.gov/",
+      "status": 403,
+      "final": "https://www.defense.gov/",
+      "error": "",
+      "cited_by": [
+        "dod",
+        "dod (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.dhs.gov/",
+      "status": 200,
+      "final": "https://www.dhs.gov/",
+      "error": "",
+      "cited_by": [
+        "dhs",
+        "dhs (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.dhs.gov/science-and-technology",
+      "status": 200,
+      "final": "https://www.dhs.gov/science-and-technology",
+      "error": "",
+      "cited_by": [
+        "dhs"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.dhs.gov/science-and-technology/sbir",
+      "status": 200,
+      "final": "https://www.dhs.gov/science-and-technology/sbir",
+      "error": "",
+      "cited_by": [
+        "dhs",
+        "dhs",
+        "dhs-sbir",
+        "dhs-sbir (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.dhs.gov/science-and-technology/svip",
+      "status": 200,
+      "final": "https://www.dhs.gov/science-and-technology/svip",
+      "error": "",
+      "cited_by": [
+        "dhs",
+        "dhs",
+        "dhs-svip",
+        "dhs-svip",
+        "dhs-svip (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.diu.mil/",
+      "status": 200,
+      "final": "https://www.diu.mil/",
+      "error": "",
+      "cited_by": [
+        "diu",
+        "diu (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.diu.mil/work-with-us",
+      "status": 200,
+      "final": "https://www.diu.mil/work-with-us",
+      "error": "",
+      "cited_by": [
+        "diu"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.dodsbirsttr.mil/",
+      "status": 200,
+      "final": "https://www.dodsbirsttr.mil/",
+      "error": "",
+      "cited_by": [
+        "dod",
+        "dod-sbir",
+        "dod-sbir (seed homepage)",
+        "onr"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.ed.gov/",
+      "status": 200,
+      "final": "https://www.ed.gov/",
+      "error": "",
+      "cited_by": [
+        "ed",
+        "ed (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.eda.gov/",
+      "status": 403,
+      "final": "https://www.eda.gov/",
+      "error": "",
+      "cited_by": [
+        "doc",
+        "eda",
+        "eda (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.eda.gov/contact",
+      "status": 403,
+      "final": "https://www.eda.gov/contact",
+      "error": "",
+      "cited_by": [
+        "eda",
+        "eda",
+        "build-to-scale",
+        "build-to-scale"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.eda.gov/funding/programs/build-to-scale",
+      "status": 403,
+      "final": "https://www.eda.gov/funding/programs/build-to-scale",
+      "error": "",
+      "cited_by": [
+        "eda",
+        "build-to-scale",
+        "build-to-scale (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.eda.gov/funding/programs/regional-technology-and-innovation-hubs",
+      "status": 403,
+      "final": "https://www.eda.gov/funding/programs/regional-technology-and-innovation-hubs",
+      "error": "",
+      "cited_by": [
+        "tech-hubs",
+        "tech-hubs (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.eda.gov/funding/programs/tech-hubs",
+      "status": 403,
+      "final": "https://www.eda.gov/funding/programs/tech-hubs",
+      "error": "",
+      "cited_by": [
+        "eda"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.energy.gov/",
+      "status": 200,
+      "final": "https://www.energy.gov/",
+      "error": "",
+      "cited_by": [
+        "doe",
+        "doe (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.energy.gov/eere",
+      "status": 200,
+      "final": "https://www.energy.gov/cmei/office-critical-minerals-and-energy-innovation",
+      "error": "",
+      "cited_by": [
+        "doe"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.energy.gov/eere/",
+      "status": 200,
+      "final": "https://www.energy.gov/cmei/office-critical-minerals-and-energy-innovation",
+      "error": "",
+      "cited_by": [
+        "eere",
+        "eere (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.energy.gov/eere/american-made",
+      "status": 404,
+      "final": "https://www.energy.gov/eere/american-made",
+      "error": "",
+      "cited_by": [
+        "eere"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.energy.gov/eere/contact-us",
+      "status": 404,
+      "final": "https://www.energy.gov/eere/contact-us",
+      "error": "",
+      "cited_by": [
+        "eere",
+        "eere"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.energy.gov/eere/funding-opportunities",
+      "status": 200,
+      "final": "https://www.energy.gov/cmei/vehicles/funding-opportunities",
+      "error": "",
+      "cited_by": [
+        "eere"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.energy.gov/eere/lab-embedded-entrepreneurship-program",
+      "status": 404,
+      "final": "https://www.energy.gov/eere/lab-embedded-entrepreneurship-program",
+      "error": "",
+      "cited_by": [
+        "leep",
+        "leep (seed homepage)"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.energy.gov/lpo",
+      "status": 404,
+      "final": "https://www.energy.gov/lpo",
+      "error": "",
+      "cited_by": [
+        "doe"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.energy.gov/lpo/",
+      "status": 404,
+      "final": "https://www.energy.gov/lpo/",
+      "error": "",
+      "cited_by": [
+        "doe-lpo",
+        "doe-lpo (seed homepage)"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.energy.gov/lpo/contact-us",
+      "status": 200,
+      "final": "https://www.energy.gov/edf/contact-us",
+      "error": "",
+      "cited_by": [
+        "doe-lpo",
+        "doe-lpo"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.energy.gov/oced",
+      "status": 200,
+      "final": "https://www.energy.gov/cmei/oced/office-clean-energy-demonstrations",
+      "error": "",
+      "cited_by": [
+        "doe"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.energy.gov/oced/",
+      "status": 200,
+      "final": "https://www.energy.gov/cmei/oced/office-clean-energy-demonstrations",
+      "error": "",
+      "cited_by": [
+        "oced",
+        "oced (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.energy.gov/ott",
+      "status": 200,
+      "final": "https://www.energy.gov/technologycommercialization/office-technology-commercialization",
+      "error": "",
+      "cited_by": [
+        "doe"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.energy.gov/technologytransitions/",
+      "status": 200,
+      "final": "https://www.energy.gov/technologycommercialization/office-technology-commercialization",
+      "error": "",
+      "cited_by": [
+        "doe-ott",
+        "doe-ott",
+        "doe-ott (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.epa.gov/",
+      "status": 200,
+      "final": "https://www.epa.gov/",
+      "error": "",
+      "cited_by": [
+        "epa",
+        "epa (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.epa.gov/sbir",
+      "status": 200,
+      "final": "https://www.epa.gov/sbir",
+      "error": "",
+      "cited_by": [
+        "epa",
+        "epa-sbir",
+        "epa-sbir (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.fda.gov/",
+      "status": 200,
+      "final": "https://www.fda.gov/",
+      "error": "",
+      "cited_by": [
+        "fda",
+        "fda (seed homepage)",
+        "fda-pdc",
+        "fda-pdc (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.fda.gov/about-fda/contact-fda",
+      "status": 200,
+      "final": "https://www.fda.gov/about-fda/contact-fda",
+      "error": "",
+      "cited_by": [
+        "fda"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.fda.gov/industry/developing-products-rare-diseases-conditions",
+      "status": 200,
+      "final": "https://www.fda.gov/industry/medical-products-rare-diseases-and-conditions",
+      "error": "",
+      "cited_by": [
+        "fda-oopd",
+        "fda-oopd",
+        "fda-oopd (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.fda.gov/industry/medical-devices/pediatric-device-consortia-pdc-grants-program",
+      "status": 404,
+      "final": "https://www.fda.gov/industry/medical-devices/pediatric-device-consortia-pdc-grants-program",
+      "error": "",
+      "cited_by": [
+        "fda-pdc"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.fda.gov/industry/medical-products-rare-diseases-and-conditions/orphan-products-clinical-trials-grants-program",
+      "status": 404,
+      "final": "https://www.fda.gov/industry/medical-products-rare-diseases-and-conditions/orphan-products-clinical-trials-grants-program",
+      "error": "",
+      "cited_by": [
+        "fda"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.fda.gov/medical-devices/",
+      "status": 200,
+      "final": "https://www.fda.gov/medical-devices",
+      "error": "",
+      "cited_by": [
+        "cdrh-tap",
+        "cdrh-tap (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.fda.gov/medical-devices/cdrh-innovation/cdrh-total-product-life-cycle-tap-program",
+      "status": 404,
+      "final": "https://www.fda.gov/medical-devices/cdrh-innovation/cdrh-total-product-life-cycle-tap-program",
+      "error": "",
+      "cited_by": [
+        "fda"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.fda.gov/medical-devices/industry-medical-devices/total-product-life-cycle-advisory-program-tap",
+      "status": 404,
+      "final": "https://www.fda.gov/medical-devices/industry-medical-devices/total-product-life-cycle-advisory-program-tap",
+      "error": "",
+      "cited_by": [
+        "cdrh-tap"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.fda.gov/medical-devices/pediatric-device-consortia-grants-program",
+      "status": 404,
+      "final": "https://www.fda.gov/medical-devices/pediatric-device-consortia-grants-program",
+      "error": "",
+      "cited_by": [
+        "fda"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.fda.gov/science-research/small-business-innovation-research-program-sbir",
+      "status": 404,
+      "final": "https://www.fda.gov/science-research/small-business-innovation-research-program-sbir",
+      "error": "",
+      "cited_by": [
+        "fda"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.fic.nih.gov/",
+      "status": 200,
+      "final": "https://www.fic.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "fic",
+        "fic",
+        "fic (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.genome.gov/",
+      "status": 200,
+      "final": "https://www.genome.gov/",
+      "error": "",
+      "cited_by": [
+        "nhgri",
+        "nhgri",
+        "nhgri (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.health.mil/",
+      "status": 200,
+      "final": "https://www.health.mil/",
+      "error": "",
+      "cited_by": [
+        "dha",
+        "dha (seed homepage)",
+        "dha-sbir",
+        "dha-sbir (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.hhs.gov/",
+      "status": 403,
+      "final": "https://www.hhs.gov/",
+      "error": "",
+      "cited_by": [
+        "hhs",
+        "hhs (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.iarpa.gov/",
+      "status": 403,
+      "final": "https://www.iarpa.gov/",
+      "error": "",
+      "cited_by": [
+        "ic",
+        "iarpa",
+        "iarpa (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.intelligence.gov/",
+      "status": 403,
+      "final": "https://www.intelligence.gov/",
+      "error": "",
+      "cited_by": [
+        "ic",
+        "ic (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.iqt.org/",
+      "status": 200,
+      "final": "https://www.iqt.org/",
+      "error": "",
+      "cited_by": [
+        "ic",
+        "inqtel",
+        "inqtel (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.medicalcountermeasures.gov/barda/",
+      "status": 200,
+      "final": "https://www.medicalcountermeasures.gov/barda",
+      "error": "",
+      "cited_by": [
+        "barda",
+        "barda (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nasa.gov/",
+      "status": 200,
+      "final": "https://www.nasa.gov/",
+      "error": "",
+      "cited_by": [
+        "nasa",
+        "nasa (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nasa.gov/directorates/spacetech/flightopportunities/",
+      "status": 200,
+      "final": "https://www.nasa.gov/stmd-flight-opportunities/",
+      "error": "",
+      "cited_by": [
+        "nasa-flight",
+        "nasa-flight (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nasa.gov/flight-opportunities/",
+      "status": 404,
+      "final": "https://www.nasa.gov/flight-opportunities/",
+      "error": "",
+      "cited_by": [
+        "nasa"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.navysbir.com/",
+      "status": 200,
+      "final": "https://www.navysbir.com/",
+      "error": "",
+      "cited_by": [
+        "navy-sbir",
+        "navy-sbir",
+        "navy-sbir (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nccih.nih.gov/",
+      "status": 200,
+      "final": "https://www.nccih.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nccih",
+        "nccih (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nccih.nih.gov/about/contact-us",
+      "status": 404,
+      "final": "https://www.nccih.nih.gov/about/contact-us",
+      "error": "",
+      "cited_by": [
+        "nccih",
+        "nccih"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.nccih.nih.gov/grants",
+      "status": 200,
+      "final": "https://www.nccih.nih.gov/grants",
+      "error": "",
+      "cited_by": [
+        "nccih"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nei.nih.gov/",
+      "status": 200,
+      "final": "https://www.nei.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nei",
+        "nei (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nei.nih.gov/about/contact-us",
+      "status": 404,
+      "final": "https://www.nei.nih.gov/about/contact-us",
+      "error": "",
+      "cited_by": [
+        "nei",
+        "nei"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.nhlbi.nih.gov/",
+      "status": 200,
+      "final": "https://www.nhlbi.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nhlbi",
+        "nhlbi (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nia.nih.gov/",
+      "status": 200,
+      "final": "https://www.nia.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nia",
+        "nia (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nia.nih.gov/about/contact-us",
+      "status": 200,
+      "final": "https://www.nia.nih.gov/contact",
+      "error": "",
+      "cited_by": [
+        "nia",
+        "nia"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nia.nih.gov/research/sbir",
+      "status": 200,
+      "final": "https://www.nia.nih.gov/research/sbir",
+      "error": "",
+      "cited_by": [
+        "nia"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.niaaa.nih.gov/",
+      "status": 200,
+      "final": "https://www.niaaa.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "niaaa",
+        "niaaa (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.niaid.nih.gov/",
+      "status": 200,
+      "final": "https://www.niaid.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "niaid",
+        "niaid (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.niaid.nih.gov/about/contact-us",
+      "status": 200,
+      "final": "https://www.niaid.nih.gov/node/7937?404message&requested_url=/about/contact-us",
+      "error": "",
+      "cited_by": [
+        "niaid"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.niaid.nih.gov/grants-contracts/small-business-programs",
+      "status": 200,
+      "final": "https://www.niaid.nih.gov/node/7937?404message&requested_url=/grants-contracts/small-business-programs",
+      "error": "",
+      "cited_by": [
+        "niaid"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.niams.nih.gov/",
+      "status": 200,
+      "final": "https://www.niams.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "niams",
+        "niams (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nibib.nih.gov/",
+      "status": 200,
+      "final": "https://www.nibib.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nibib",
+        "nibib (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nichd.nih.gov/",
+      "status": 200,
+      "final": "https://www.nichd.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nichd",
+        "nichd (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nichd.nih.gov/grants-contracts/sbir-sttr",
+      "status": 404,
+      "final": "https://www.nichd.nih.gov/grants-contracts/sbir-sttr",
+      "error": "",
+      "cited_by": [
+        "nichd"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.nidcd.nih.gov/",
+      "status": 200,
+      "final": "https://www.nidcd.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nidcd",
+        "nidcd (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nidcd.nih.gov/about/contact-us",
+      "status": 404,
+      "final": "https://www.nidcd.nih.gov/about/contact-us",
+      "error": "",
+      "cited_by": [
+        "nidcd"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.nidcr.nih.gov/",
+      "status": 200,
+      "final": "https://www.nidcr.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nidcr",
+        "nidcr (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.niddk.nih.gov/",
+      "status": 200,
+      "final": "https://www.niddk.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "niddk",
+        "niddk",
+        "niddk (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.niddk.nih.gov/research-funding/research-programs/small-business-innovation-research-sbir-small-business-technology-transfer-sttr-programs",
+      "status": 404,
+      "final": "https://www.niddk.nih.gov/research-funding/research-programs/small-business-innovation-research-sbir-small-business-technology-transfer-sttr-programs",
+      "error": "",
+      "cited_by": [
+        "niddk"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.niehs.nih.gov/",
+      "status": 200,
+      "final": "https://www.niehs.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "niehs",
+        "niehs (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nifa.usda.gov/",
+      "status": 0,
+      "final": "https://www.nifa.usda.gov/",
+      "error": "no response",
+      "cited_by": [
+        "usda",
+        "usda-nifa",
+        "usda-nifa (seed homepage)",
+        "usda-sbir"
+      ],
+      "verdict": "unreachable"
+    },
+    {
+      "url": "https://www.nifa.usda.gov/grants/programs/sbir-sttr",
+      "status": 200,
+      "final": "https://www.nifa.usda.gov/grants/programs/sbir-sttr",
+      "error": "",
+      "cited_by": [
+        "usda-sbir",
+        "usda-sbir",
+        "usda-sbir (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nifa.usda.gov/grants/programs/small-business-innovation-research-program-sbir",
+      "status": 200,
+      "final": "https://www.nifa.usda.gov/grants/programs/small-business-innovation-research-program-sbir",
+      "error": "",
+      "cited_by": [
+        "usda-nifa",
+        "usda-nifa"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nigms.nih.gov/",
+      "status": 200,
+      "final": "https://www.nigms.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nigms",
+        "nigms (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nih.gov/",
+      "status": 403,
+      "final": "https://www.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nih",
+        "nih (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.nimh.nih.gov/",
+      "status": 200,
+      "final": "https://www.nimh.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nimh",
+        "nimh (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nimh.nih.gov/about/contact-us",
+      "status": 404,
+      "final": "https://www.nimh.nih.gov/about/contact-us",
+      "error": "",
+      "cited_by": [
+        "nimh",
+        "nimh"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.nimh.nih.gov/funding/small-business-programs",
+      "status": 404,
+      "final": "https://www.nimh.nih.gov/funding/small-business-programs",
+      "error": "",
+      "cited_by": [
+        "nimh"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.nimhd.nih.gov/",
+      "status": 200,
+      "final": "https://www.nimhd.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nimhd",
+        "nimhd",
+        "nimhd (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.ninds.nih.gov/",
+      "status": 200,
+      "final": "https://www.ninds.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "ninds",
+        "ninds (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.ninds.nih.gov/about-ninds/contact-us",
+      "status": 404,
+      "final": "https://www.ninds.nih.gov/about-ninds/contact-us",
+      "error": "",
+      "cited_by": [
+        "ninds",
+        "ninds"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.ninds.nih.gov/funding",
+      "status": 200,
+      "final": "https://www.ninds.nih.gov/funding/find-funding-opportunities",
+      "error": "",
+      "cited_by": [
+        "ninds"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.ninr.nih.gov/",
+      "status": 200,
+      "final": "https://www.ninr.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "ninr",
+        "ninr",
+        "ninr (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nist.gov/",
+      "status": 200,
+      "final": "https://www.nist.gov/",
+      "error": "",
+      "cited_by": [
+        "doc",
+        "nist",
+        "nist (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nist.gov/chips",
+      "status": 200,
+      "final": "https://www.nist.gov/chips",
+      "error": "",
+      "cited_by": [
+        "nist",
+        "chips-rd",
+        "chips-rd",
+        "chips-rd (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nist.gov/chips/national-semiconductor-technology-center",
+      "status": 404,
+      "final": "https://www.nist.gov/chips/national-semiconductor-technology-center",
+      "error": "",
+      "cited_by": [
+        "chips-rd"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.nist.gov/mep",
+      "status": 200,
+      "final": "https://www.nist.gov/mep",
+      "error": "",
+      "cited_by": [
+        "nist",
+        "nist-mep",
+        "nist-mep (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nist.gov/mep/about-mep/contact-us",
+      "status": 404,
+      "final": "https://www.nist.gov/mep/about-mep/contact-us",
+      "error": "",
+      "cited_by": [
+        "nist-mep",
+        "nist-mep"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.nist.gov/tpo/small-business-innovation-research-program",
+      "status": 200,
+      "final": "https://www.nist.gov/tpo/small-business-innovation-research-program-sbir",
+      "error": "",
+      "cited_by": [
+        "nist",
+        "nist",
+        "nist-sbir",
+        "nist-sbir",
+        "nist-sbir (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nlm.nih.gov/",
+      "status": 200,
+      "final": "https://www.nlm.nih.gov/",
+      "error": "",
+      "cited_by": [
+        "nlm",
+        "nlm (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nlm.nih.gov/ep/",
+      "status": 200,
+      "final": "https://www.nlm.nih.gov/ep/index.html",
+      "error": "",
+      "cited_by": [
+        "nlm"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.noaa.gov/",
+      "status": 200,
+      "final": "https://www.noaa.gov/",
+      "error": "",
+      "cited_by": [
+        "doc",
+        "noaa",
+        "noaa (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.noaa.gov/office-technology-transitions/noaa-small-business-innovation-research-sbir-program",
+      "status": 404,
+      "final": "https://www.noaa.gov/office-technology-transitions/noaa-small-business-innovation-research-sbir-program",
+      "error": "",
+      "cited_by": [
+        "noaa"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.nsf.gov/",
+      "status": 200,
+      "final": "https://www.nsf.gov/",
+      "error": "",
+      "cited_by": [
+        "nsf",
+        "nsf (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nsf.gov/tip/",
+      "status": 200,
+      "final": "https://www.nsf.gov/tip/latest",
+      "error": "",
+      "cited_by": [
+        "nsf",
+        "nsf-tip",
+        "nsf-tip (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.nsin.mil/",
+      "status": 0,
+      "final": "https://www.nsin.mil/",
+      "error": "no response",
+      "cited_by": [
+        "nsin",
+        "nsin (seed homepage)"
+      ],
+      "verdict": "unreachable"
+    },
+    {
+      "url": "https://www.onr.navy.mil/",
+      "status": 200,
+      "final": "https://www.onr.navy.mil/",
+      "error": "",
+      "cited_by": [
+        "onr",
+        "onr (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.sba.gov/",
+      "status": 200,
+      "final": "https://www.sba.gov/",
+      "error": "",
+      "cited_by": [
+        "sba",
+        "sba (seed homepage)",
+        "sba-gafc",
+        "sba-gafc (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.sba.gov/about-sba/organization/contact-sba",
+      "status": 200,
+      "final": "https://www.sba.gov/about-sba/organization/contact-sba/",
+      "error": "",
+      "cited_by": [
+        "sba",
+        "sba-gafc",
+        "sba-gafc"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.sba.gov/funding-programs/investment-capital",
+      "status": 200,
+      "final": "https://www.sba.gov/loans/additional-funding-opportunities/investment-capital/",
+      "error": "",
+      "cited_by": [
+        "sbic",
+        "sbic (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.sba.gov/funding-programs/investment-capital/sbic-program",
+      "status": 404,
+      "final": "https://www.sba.gov/funding-programs/investment-capital/sbic-program",
+      "error": "",
+      "cited_by": [
+        "sba"
+      ],
+      "verdict": "dead (404)"
+    },
+    {
+      "url": "https://www.sbir.gov/",
+      "status": 200,
+      "final": "https://www.sbir.gov/",
+      "error": "",
+      "cited_by": [
+        "sbir-framework",
+        "sbir-framework (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.sofwerx.org/",
+      "status": 200,
+      "final": "https://www.sofwerx.org/",
+      "error": "",
+      "cited_by": [
+        "sofwerx",
+        "sofwerx",
+        "sofwerx (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.transportation.gov/",
+      "status": 403,
+      "final": "https://www.transportation.gov/",
+      "error": "",
+      "cited_by": [
+        "dot",
+        "dot (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.transportation.gov/administrations/assistant-secretary-research-and-technology/office-research-development-and-technology/small-business-innovation-research-sbir",
+      "status": 403,
+      "final": "https://www.transportation.gov/administrations/assistant-secretary-research-and-technology/office-research-development-and-technology/small-business-innovation-research-sbir",
+      "error": "",
+      "cited_by": [
+        "dot",
+        "dot"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.transportation.gov/arpa-i",
+      "status": 403,
+      "final": "https://www.transportation.gov/arpa-i",
+      "error": "",
+      "cited_by": [
+        "dot",
+        "arpa-i",
+        "arpa-i",
+        "arpa-i (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.transportation.gov/sbir",
+      "status": 403,
+      "final": "https://www.transportation.gov/sbir",
+      "error": "",
+      "cited_by": [
+        "dot-sbir",
+        "dot-sbir (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.usa.gov/",
+      "status": 200,
+      "final": "https://www.usa.gov/",
+      "error": "",
+      "cited_by": [
+        "us-gov",
+        "us-gov (seed homepage)"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.usa.gov/contact-us",
+      "status": 200,
+      "final": "https://www.usa.gov/contact-us",
+      "error": "",
+      "cited_by": [
+        "us-gov"
+      ],
+      "verdict": "ok"
+    },
+    {
+      "url": "https://www.usda.gov/",
+      "status": 403,
+      "final": "https://www.usda.gov/",
+      "error": "",
+      "cited_by": [
+        "usda",
+        "usda (seed homepage)"
+      ],
+      "verdict": "blocked (401/403)"
+    },
+    {
+      "url": "https://www.xtech.army.mil/",
+      "status": 200,
+      "final": "https://xtech.army.mil/",
+      "error": "",
+      "cited_by": [
+        "army-xtech",
+        "army-xtech (seed homepage)"
+      ],
+      "verdict": "ok"
+    }
+  ]
+}

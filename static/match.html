@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas — Find my funding</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="brand"><b>Atlas</b> <span>Federal Funding Ecosystem</span></div>
+  <nav class="tabs">
+    <a href="/">Ecosystem map</a>
+    <a href="/match" class="on">Find my funding</a>
+  </nav>
+  <div class="bar-right">
+    <div class="bar-stat">Searching <b id="statNodes">—</b> federal programmes</div>
+  </div>
+</header>
+
+<div class="match-wrap">
+<div class="match-inner">
+
+  <div class="ask-card">
+    <h1>Describe your research and what you need</h1>
+    <p class="sub">
+      Say what you are building, what it treats or does, how far along it is, and how much
+      money over how long. The more specific the science, the better the ranking.
+    </p>
+
+    <textarea id="desc" placeholder="e.g. I have a gene therapy targeting the TYK2 gene that slows the progression of multiple sclerosis. We have mouse efficacy data and no company yet. I need $2–3 million over two years to get to IND."></textarea>
+
+    <div class="ask-foot">
+      <button class="primary" id="go">Find funding matches</button>
+      <button id="clear">Clear</button>
+      <span class="count"><span id="count">0</span> / 6,000</span>
+    </div>
+
+    <div class="examples">
+      <h3>Try one of these</h3>
+      <button class="example" data-fill="I have a gene therapy targeting the TYK2 gene that slows the progression of multiple sclerosis. We have mouse efficacy data and have not formed a company yet. I need $2-3 million over two years to reach IND.">
+        <b>Gene therapy for multiple sclerosis</b> — pre-clinical, $2–3M over 2 years
+      </button>
+      <button class="example" data-fill="We built a low-cost handheld ultrasound probe with on-device AI that lets a community health worker screen for heart failure without a radiologist. We have a working prototype tested on 40 patients. We need about $1.5 million over 18 months for a pivotal study and FDA clearance.">
+        <b>AI-guided handheld ultrasound</b> — prototype, $1.5M over 18 months
+      </button>
+      <button class="example" data-fill="My lab developed an electrocatalyst that converts captured CO2 into ethylene at 70% faradaic efficiency using an iron-based catalyst instead of copper. We want to build a pilot reactor. We need roughly $5 million over three years and have spun out a company.">
+        <b>CO2-to-ethylene electrocatalyst</b> — spun out, $5M over 3 years
+      </button>
+      <button class="example" data-fill="We have a drought-resistant wheat variety developed through CRISPR gene editing that maintains yield under 40% reduced irrigation. We have three seasons of field trial data. We need $800,000 over two years for regulatory work and seed scale-up.">
+        <b>CRISPR drought-resistant wheat</b> — field data, $800K over 2 years
+      </button>
+    </div>
+
+    <div id="notice"></div>
+  </div>
+
+  <div id="results"></div>
+
+</div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const usd = n => !n ? "—" : n >= 1e9 ? "$" + (n/1e9).toFixed(1) + "B"
+                  : n >= 1e6 ? "$" + (n/1e6).toFixed(n % 1e6 ? 1 : 0) + "M"
+                  : n >= 1e3 ? "$" + Math.round(n/1e3) + "K" : "$" + n;
+
+const band = c => (c.min_usd && c.max_usd) ? usd(c.min_usd) + " \u2013 " + usd(c.max_usd)
+              : c.max_usd ? "up to " + usd(c.max_usd)
+              : c.min_usd ? "from " + usd(c.min_usd) : "not published";
+
+fetch("/api/graph").then(r => r.json()).then(d => {
+  $("statNodes").textContent = d.nodes.filter(n => n.has_venture_arm).length;
+});
+
+$("desc").addEventListener("input", e => { $("count").textContent = e.target.value.length; });
+$("clear").onclick = () => {
+  $("desc").value = ""; $("count").textContent = "0";
+  $("results").innerHTML = ""; $("notice").innerHTML = "";
+};
+document.querySelectorAll(".example").forEach(b => {
+  b.onclick = () => {
+    $("desc").value = b.dataset.fill;
+    $("count").textContent = b.dataset.fill.length;
+    $("desc").focus();
+  };
+});
+
+$("go").onclick = run;
+$("desc").addEventListener("keydown", e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === "Enter") run();
+});
+
+async function run() {
+  const description = $("desc").value.trim();
+  $("notice").innerHTML = "";
+  $("results").innerHTML = "";
+  $("go").disabled = true;
+  $("go").innerHTML = '<span class="spinner"></span> Searching…';
+  $("results").innerHTML = `<p class="loading-note">
+    Reading your description, scoring every programme in the map, then ranking the best fits.
+    This takes about twenty seconds.</p>`;
+
+  try {
+    const res = await fetch("/api/match", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({description})
+    });
+    const data = await res.json();
+    if (!res.ok) { showError(data); $("results").innerHTML = ""; return; }
+    render(data);
+  } catch (err) {
+    showError({error: "network", detail: String(err)});
+    $("results").innerHTML = "";
+  } finally {
+    $("go").disabled = false;
+    $("go").textContent = "Find funding matches";
+  }
+}
+
+function showError(d) {
+  const titles = {
+    injection: "That request was blocked",
+    too_short: "Not enough to go on",
+    too_long: "Description too long",
+    rate_limited: "Too many searches",
+    budget_exhausted: "Spending limit reached",
+    match_failed: "The search failed",
+    network: "Could not reach the server"
+  };
+  $("notice").innerHTML = `
+    <div class="notice ${d.error === "injection" ? "" : "error"}">
+      <b>${esc(titles[d.error] || "Something went wrong")}</b>
+      ${esc(d.detail || "")}
+      ${d.matched ? `<code>Detected ${esc(d.matched)}</code>` : ""}
+    </div>`;
+}
+
+function render(d) {
+  const b = d.brief, u = d.usage;
+
+  const briefHtml = `
+    <div class="section-title">What we understood</div>
+    <div class="brief-card">
+      <p style="margin:0 0 12px;font-size:15px">${esc(b.summary)}</p>
+      <dl class="kv">
+        <dt>Modality</dt><dd>${esc(b.modality)}</dd>
+        <dt>Application</dt><dd>${esc(b.indication)}</dd>
+        <dt>Stage</dt><dd>${esc(b.stage.replace(/-/g, " "))}</dd>
+        <dt>Amount needed</dt><dd>${b.amount_needed_usd ? usd(b.amount_needed_usd) : "not stated"}</dd>
+        <dt>Timeframe</dt><dd>${b.duration_months ? b.duration_months + " months" : "not stated"}</dd>
+        <dt>Sectors</dt><dd>${b.sectors.map(s => `<span class="pill">${esc(s.replace(/-/g," "))}</span>`).join(" ")}</dd>
+      </dl>
+      ${b.missing_info.length ? `
+        <div style="margin-top:14px;padding-top:13px;border-top:1px solid var(--line-soft)">
+          <b style="font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint)">
+            Answer these and the ranking gets sharper</b>
+          <ul style="margin:7px 0 0;padding-left:17px;font-size:13.5px;color:var(--muted)">
+            ${b.missing_info.map(m => `<li>${esc(m)}</li>`).join("")}</ul>
+        </div>` : ""}
+    </div>`;
+
+  const steps = d.trace.stages.map((s, i) => `
+    <div class="trace-step">
+      <div class="n">${i + 1}</div>
+      <div>
+        <div class="sname">${esc(s.stage)}</div>
+        <div class="sdetail">${esc(s.detail)}</div>
+        ${s.shortlist ? `<div class="sdetail" style="margin-top:4px">
+          ${s.shortlist.slice(0, 6).map(x => `${esc(x.name)} <span style="color:var(--faint)">${x.score}</span>`).join(" · ")}
+          ${s.shortlist.length > 6 ? ` · +${s.shortlist.length - 6} more` : ""}</div>` : ""}
+      </div>
+    </div>`).join("");
+
+  const cards = d.matches.map(m => {
+    const checks = m.check_sizes.length
+      ? m.check_sizes.map(c => `<div class="check-row">
+            <span>${esc(c.label)}</span>
+            <span class="amt">${band(c)}</span>
+          </div>`).join("")
+      : `<p class="muted small">Not published.</p>`;
+
+    const contacts = m.contacts.length
+      ? m.contacts.map(c => `<div class="contact ${c.verify_before_use ? "unverified" : ""}">
+            <div class="cname">${esc(c.name === "unknown" ? "Programme contact" : c.name)}</div>
+            ${c.title && c.title !== "unknown" ? `<div class="ctitle">${esc(c.title)}</div>` : ""}
+            <div class="cmeta">
+              ${c.email ? `<a href="mailto:${esc(c.email)}">${esc(c.email)}</a>` : ""}
+              ${c.source_url ? `${c.email ? "<br>" : ""}<a href="${esc(c.source_url)}" target="_blank" rel="noopener">${esc(c.source_url.slice(0,52))}</a>` : ""}
+            </div>
+            ${c.verify_before_use ? `<div class="verify-note"><span>&#9888;</span>
+              <span>Confirm before reaching out — not verified against a live source.</span></div>` : ""}
+          </div>`).join("")
+      : `<p class="muted small">No contact captured; start from the programme site.</p>`;
+
+    return `
+    <div class="match-card">
+      <div class="match-head">
+        <div class="rank-badge">${m.rank}</div>
+        <div style="flex:1;min-width:0">
+          <h3>${esc(m.name)}</h3>
+          <div class="path">${esc(m.path || "top level")} &middot; ${esc(m.full_name)}</div>
+        </div>
+        <div class="rel">
+          <div class="num">${m.relevance}</div>
+          <div class="lbl">relevance</div>
+          <div class="rel-bar"><i style="width:${Math.max(3, m.relevance)}%"></i></div>
+        </div>
+      </div>
+
+      <div class="match-body">
+        <p>${esc(m.why)}</p>
+
+        <div class="mf"><b>Check size fit</b>${esc(m.fit_on_check_size)}</div>
+        <div class="mf"><b>Stage fit</b>${esc(m.fit_on_stage)}</div>
+        ${m.concerns ? `<div class="concern"><b style="display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px">Worth knowing</b>${esc(m.concerns)}</div>` : ""}
+
+        <button class="more-toggle" onclick="this.nextElementSibling.classList.toggle('open');
+          this.textContent = this.nextElementSibling.classList.contains('open')
+            ? 'Hide application details' : 'Application details, timeline & contact'">
+          Application details, timeline &amp; contact</button>
+
+        <div class="more">
+          <div class="mf"><b>Award sizes</b>${checks}</div>
+          <div class="mf"><b>Timeline</b>${esc(m.application_timeline)}</div>
+          <div class="mf"><b>Eligibility</b>${esc(m.eligibility)}</div>
+          ${m.materials_required.length ? `<div class="mf"><b>Materials needed</b>
+            <ul style="margin:0;padding-left:17px">${m.materials_required.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}
+          <div class="mf"><b>Contact</b>${contacts}</div>
+          <div class="mf"><b>Sources</b>
+            ${m.source_urls.map(s => `<a class="src" href="${esc(s)}" target="_blank" rel="noopener">${esc(s)}</a>`).join("") || "<span class='muted small'>None recorded.</span>"}</div>
+          <div class="provenance">Profile confidence <b>${esc(m.confidence)}</b>,
+            researched ${esc((m.retrieved_at || "").slice(0,10))}. Verify before acting.</div>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+
+  const tok = u.input_tokens + u.cached_input_tokens + u.output_tokens;
+
+  $("results").innerHTML = `
+    ${briefHtml}
+
+    <div class="section-title">Ranked matches (${d.matches.length})</div>
+    ${cards}
+
+    <div class="section-title">How to sequence this</div>
+    <div class="strategy">
+      <h3>Suggested approach</h3>
+      <p style="margin:0">${esc(d.strategy_note)}</p>
+    </div>
+
+    <div class="section-title">How this answer was produced</div>
+    <div class="trace-card">${steps}
+      <p class="small muted" style="margin:12px 0 0;padding-top:11px;border-top:1px solid var(--line-soft)">
+        Step 2 runs locally with no model call. Scoring first and sending twelve condensed
+        profiles instead of all ${esc(String(d.trace.stages[1].detail.match(/\d+/)?.[0] || ""))}
+        is what keeps a search cheap.</p>
+    </div>
+
+    <div class="section-title">What this search cost</div>
+    <div class="usage-card">
+      <div class="usage-grid">
+        <div class="usage-cell"><div class="u-num">${u.input_tokens.toLocaleString()}</div><div class="u-lbl">input tokens</div></div>
+        <div class="usage-cell"><div class="u-num">${u.cached_input_tokens.toLocaleString()}</div><div class="u-lbl">cached input</div></div>
+        <div class="usage-cell"><div class="u-num">${u.output_tokens.toLocaleString()}</div><div class="u-lbl">output tokens</div></div>
+        <div class="usage-cell"><div class="u-num">${tok.toLocaleString()}</div><div class="u-lbl">total tokens</div></div>
+        <div class="usage-cell"><div class="u-num">$${u.cost_usd.toFixed(4)}</div><div class="u-lbl">cost</div></div>
+        <div class="usage-cell"><div class="u-num">${d.trace.elapsed_s}s</div><div class="u-lbl">elapsed</div></div>
+      </div>
+      <p class="small muted" style="margin:13px 0 0">
+        ${u.calls} model calls. Session budget remaining: $${d.budget_remaining_usd.toFixed(2)}.
+      </p>
+    </div>`;
+
+  $("results").scrollIntoView({behavior: "smooth", block: "start"});
+}
+</script>
+</body>
+</html>

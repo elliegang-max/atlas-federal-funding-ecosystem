@@ -1,0 +1,292 @@
+{
+  "ran_at": "2026-10-26T04:05:32+00:00",
+  "k_values": [
+    4,
+    8,
+    12,
+    20,
+    118
+  ],
+  "results": [
+    {
+      "case": "ms-gene-therapy",
+      "expected": [
+        "ninds",
+        "ncats"
+      ],
+      "brief_cost_usd": 0.00644,
+      "brief_keywords": [
+        "AAV gene therapy",
+        "TYK2 silencing",
+        "multiple sclerosis",
+        "demyelination",
+        "central nervous system",
+        "neurology",
+        "neurological disorders",
+        "autoimmune disease",
+        "therapeutics",
+        "IND-enabling toxicology",
+        "vector manufacturing"
+      ],
+      "rows": [
+        {
+          "k_requested": 4,
+          "candidates_sent": 4,
+          "profile_chars": 13022,
+          "input_tokens": 2666,
+          "cached_input_tokens": 1187,
+          "output_tokens": 2662,
+          "cost_usd": 0.030101,
+          "elapsed_s": 21.3,
+          "returned": 4,
+          "top_1": "ninds",
+          "expected_found": [
+            "ninds"
+          ],
+          "expected_missing": [
+            "ncats"
+          ],
+          "rank_of_expected": {
+            "ninds": 1,
+            "ncats": null
+          },
+          "error": ""
+        },
+        {
+          "k_requested": 8,
+          "candidates_sent": 8,
+          "profile_chars": 27308,
+          "input_tokens": 5466,
+          "cached_input_tokens": 1187,
+          "output_tokens": 3473,
+          "cost_usd": 0.041711,
+          "elapsed_s": 27.2,
+          "returned": 8,
+          "top_1": "ninds",
+          "expected_found": [
+            "ninds",
+            "ncats"
+          ],
+          "expected_missing": [],
+          "rank_of_expected": {
+            "ninds": 1,
+            "ncats": 2
+          },
+          "error": ""
+        },
+        {
+          "k_requested": 12,
+          "candidates_sent": 12,
+          "profile_chars": 40911,
+          "input_tokens": 8145,
+          "cached_input_tokens": 1187,
+          "output_tokens": 5397,
+          "cost_usd": 0.0643,
+          "elapsed_s": 2.5,
+          "returned": 11,
+          "top_1": "ninds",
+          "expected_found": [
+            "ninds",
+            "ncats"
+          ],
+          "expected_missing": [],
+          "rank_of_expected": {
+            "ninds": 1,
+            "ncats": 2
+          },
+          "error": ""
+        },
+        {
+          "k_requested": 20,
+          "candidates_sent": 20,
+          "profile_chars": 68444,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "elapsed_s": 48.6,
+          "returned": 0,
+          "top_1": null,
+          "expected_found": [],
+          "expected_missing": [
+            "ninds",
+            "ncats"
+          ],
+          "rank_of_expected": {
+            "ninds": null,
+            "ncats": null
+          },
+          "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=6000, prompt_tokens=14600, total_tokens=20600, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=6000, rejected_prediction_tokens=0, text_tokens=None), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=13410, cached_tokens=1187, image_tokens=None, text_tokens=None), latency_checkpoint={'engine_tbt_ms': 7, 'engine_ttft_ms': 166, 'engine_ttlt_ms': 42461, 'pre_inference_ms': 90, 'service_tbt_ms': 7, 'service_ttft_ms': 833, 'service_ttlt_ms': 43123, 'user_visible_ttft_ms': 743})"
+        },
+        {
+          "k_requested": 118,
+          "candidates_sent": 109,
+          "profile_chars": 345910,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "elapsed_s": 65.7,
+          "returned": 0,
+          "top_1": null,
+          "expected_found": [],
+          "expected_missing": [
+            "ninds",
+            "ncats"
+          ],
+          "rank_of_expected": {
+            "ninds": null,
+            "ncats": null
+          },
+          "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=6000, prompt_tokens=67428, total_tokens=73428, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=6000, rejected_prediction_tokens=0, text_tokens=None), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=66238, cached_tokens=1187, image_tokens=None, text_tokens=None), latency_checkpoint={'engine_tbt_ms': 6, 'engine_ttft_ms': 394, 'engine_ttlt_ms': 39325, 'pre_inference_ms': 209, 'service_tbt_ms': 6, 'service_ttft_ms': 872, 'service_ttlt_ms': 39811, 'user_visible_ttft_ms': 663})"
+        }
+      ]
+    },
+    {
+      "case": "co2-electrocatalyst",
+      "expected": [
+        "arpa-e",
+        "doe-sbir",
+        "leep"
+      ],
+      "brief_cost_usd": 0.007769,
+      "brief_keywords": [
+        "iron-based electrocatalyst",
+        "electrochemical CO\u2082 reduction",
+        "ethylene production",
+        "carbon capture and utilization",
+        "CO\u2082 utilization",
+        "electrochemical catalysis",
+        "industrial decarbonization",
+        "clean energy",
+        "greenhouse gas mitigation",
+        "chemical manufacturing"
+      ],
+      "rows": [
+        {
+          "k_requested": 4,
+          "candidates_sent": 4,
+          "profile_chars": 13144,
+          "input_tokens": 2527,
+          "cached_input_tokens": 1187,
+          "output_tokens": 2269,
+          "cost_usd": 0.025997,
+          "elapsed_s": 20.8,
+          "returned": 4,
+          "top_1": "arpa-e",
+          "expected_found": [
+            "arpa-e",
+            "leep"
+          ],
+          "expected_missing": [
+            "doe-sbir"
+          ],
+          "rank_of_expected": {
+            "arpa-e": 1,
+            "doe-sbir": null,
+            "leep": 2
+          },
+          "error": ""
+        },
+        {
+          "k_requested": 8,
+          "candidates_sent": 8,
+          "profile_chars": 27799,
+          "input_tokens": 5344,
+          "cached_input_tokens": 1187,
+          "output_tokens": 3506,
+          "cost_usd": 0.041888,
+          "elapsed_s": 26.8,
+          "returned": 8,
+          "top_1": "arpa-e",
+          "expected_found": [
+            "arpa-e",
+            "leep"
+          ],
+          "expected_missing": [
+            "doe-sbir"
+          ],
+          "rank_of_expected": {
+            "arpa-e": 1,
+            "doe-sbir": null,
+            "leep": 3
+          },
+          "error": ""
+        },
+        {
+          "k_requested": 12,
+          "candidates_sent": 12,
+          "profile_chars": 41754,
+          "input_tokens": 8028,
+          "cached_input_tokens": 1187,
+          "output_tokens": 4447,
+          "cost_usd": 0.054653,
+          "elapsed_s": 33.7,
+          "returned": 12,
+          "top_1": "arpa-e",
+          "expected_found": [
+            "arpa-e",
+            "doe-sbir",
+            "leep"
+          ],
+          "expected_missing": [],
+          "rank_of_expected": {
+            "arpa-e": 1,
+            "doe-sbir": 5,
+            "leep": 4
+          },
+          "error": ""
+        },
+        {
+          "k_requested": 20,
+          "candidates_sent": 20,
+          "profile_chars": 67059,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "elapsed_s": 43.7,
+          "returned": 0,
+          "top_1": null,
+          "expected_found": [],
+          "expected_missing": [
+            "arpa-e",
+            "doe-sbir",
+            "leep"
+          ],
+          "rank_of_expected": {
+            "arpa-e": null,
+            "doe-sbir": null,
+            "leep": null
+          },
+          "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=6000, prompt_tokens=14012, total_tokens=20012, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=6000, rejected_prediction_tokens=0, text_tokens=None), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=12822, cached_tokens=1187, image_tokens=None, text_tokens=None), latency_checkpoint={'engine_tbt_ms': 7, 'engine_ttft_ms': 284, 'engine_ttlt_ms': 41650, 'pre_inference_ms': 117, 'service_tbt_ms': 7, 'service_ttft_ms': 859, 'service_ttlt_ms': 42206, 'user_visible_ttft_ms': 742})"
+        },
+        {
+          "k_requested": 118,
+          "candidates_sent": 110,
+          "profile_chars": 348449,
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "elapsed_s": 43.5,
+          "returned": 0,
+          "top_1": null,
+          "expected_found": [],
+          "expected_missing": [
+            "arpa-e",
+            "doe-sbir",
+            "leep"
+          ],
+          "rank_of_expected": {
+            "arpa-e": null,
+            "doe-sbir": null,
+            "leep": null
+          },
+          "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=6000, prompt_tokens=67913, total_tokens=73913, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=6000, rejected_prediction_tokens=0, text_tokens=None), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=66723, cached_tokens=1187, image_tokens=None, text_tokens=None), latency_checkpoint={'engine_tbt_ms': 7, 'engine_ttft_ms': 244, 'engine_ttlt_ms': 41485, 'pre_inference_ms': 134, 'service_tbt_ms': 7, 'service_ttft_ms': 645, 'service_ttlt_ms': 41882, 'user_visible_ttft_ms': 510})"
+        }
+      ]
+    }
+  ],
+  "total_cost_usd": 0.2729
+}

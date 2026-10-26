@@ -1,0 +1,17 @@
+
+ms-gene-therapy  (expecting ninds, ncats)
+  k=4    sent=4    in=2,666   out=2,662  $0.0301  top=ninds  missing=['ncats']
+  k=8    sent=8    in=5,466   out=3,473  $0.0417  top=ninds  missing=[]
+  k=12   sent=12   in=8,145   out=5,397  $0.0643  top=ninds  missing=[]
+  k=20   sent=20   in=0       out=0      $0.0000  top=None  missing=['ninds', 'ncats']  ERROR LengthFinishReasonError: Could not parse response content as
+  k=118  sent=109  in=0       out=0      $0.0000  top=None  missing=['ninds', 'ncats']  ERROR LengthFinishReasonError: Could not parse response content as
+
+co2-electrocatalyst  (expecting arpa-e, doe-sbir, leep)
+  k=4    sent=4    in=2,527   out=2,269  $0.0260  top=arpa-e  missing=['doe-sbir']
+  k=8    sent=8    in=5,344   out=3,506  $0.0419  top=arpa-e  missing=['doe-sbir']
+  k=12   sent=12   in=8,028   out=4,447  $0.0547  top=arpa-e  missing=[]
+  k=20   sent=20   in=0       out=0      $0.0000  top=None  missing=['arpa-e', 'doe-sbir', 'leep']  ERROR LengthFinishReasonError: Could not parse response content as
+  k=118  sent=110  in=0       out=0      $0.0000  top=None  missing=['arpa-e', 'doe-sbir', 'leep']  ERROR LengthFinishReasonError: Could not parse response content as
+
+Wrote /Users/shutong/Desktop/AI Foundation/hw3/final project/data/experiments/shortlist_sweep.json
+Experiment cost $0.2729

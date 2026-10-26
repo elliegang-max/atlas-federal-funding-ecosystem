@@ -1,0 +1,55 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/></marker></defs>
+<text x="30" y="22" font-size="10" font-weight="700" fill="#94a3b8" letter-spacing="0.08em">BUILD TIME · RUNS ONCE · 116 CALLS · 267s · $2.42</text>
+<rect x="30" y="36" width="200" height="66" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="130.0" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="#0f2a4a">atlas/seed.py</text>
+<text x="130.0" y="76" text-anchor="middle" font-size="10.5" fill="#64748b">118 organizations,</text>
+<text x="130.0" y="89" text-anchor="middle" font-size="10.5" fill="#64748b">hierarchy placed by hand</text>
+<line x1="232" y1="69" x2="264" y2="69" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arr)"/>
+<rect x="268" y="36" width="210" height="66" rx="8" fill="#0f2a4a" stroke="#0f2a4a" stroke-width="1.4"/>
+<text x="373.0" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Enrichment Agent</text>
+<text x="373.0" y="76" text-anchor="middle" font-size="10.5" fill="#b9cbe0">one structured call per org</text>
+<text x="373.0" y="89" text-anchor="middle" font-size="10.5" fill="#b9cbe0">8 running concurrently</text>
+<line x1="480" y1="69" x2="512" y2="69" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arr)"/>
+<rect x="516" y="36" width="200" height="66" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 3"/>
+<text x="616.0" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="#0f2a4a">data/ecosystem.json</text>
+<text x="616.0" y="76" text-anchor="middle" font-size="10.5" fill="#64748b">118 sourced profiles</text>
+<text x="730" y="62" font-size="10.5" fill="#64748b">committed to the</text>
+<text x="730" y="76" font-size="10.5" fill="#64748b">repo, so a fresh</text>
+<text x="730" y="90" font-size="10.5" fill="#64748b">clone never rebuilds</text>
+<line x1="616" y1="102" x2="616" y2="128" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 3"/>
+<line x1="616" y1="128" x2="16" y2="128" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 3"/>
+<line x1="16" y1="128" x2="16" y2="387" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="4 3"/>
+<line x1="16" y1="238" x2="38" y2="238" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arr)" stroke-dasharray="4 3"/>
+<line x1="16" y1="387" x2="518" y2="387" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arr)" stroke-dasharray="4 3"/>
+<text x="40" y="182" font-size="10" font-weight="700" fill="#94a3b8" letter-spacing="0.08em">INTERFACE 1 · TECHNOLOGY TRANSFER OFFICE</text>
+<rect x="40" y="196" width="300" height="84" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="190.0" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#0f2a4a">Ecosystem map</text>
+<text x="190.0" y="236" text-anchor="middle" font-size="10.5" fill="#64748b">browser reads the graph directly</text>
+<text x="190.0" y="249" text-anchor="middle" font-size="10.5" fill="#64748b">no model call · $0.00 per view</text>
+<text x="190.0" y="262" text-anchor="middle" font-size="10.5" fill="#64748b">118 clickable organizations</text>
+<text x="520" y="136" font-size="10" font-weight="700" fill="#94a3b8" letter-spacing="0.08em">INTERFACE 2 · RESEARCHER</text>
+<rect x="520" y="150" width="340" height="54" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="690.0" y="174" text-anchor="middle" font-size="13" font-weight="700" fill="#0f2a4a">Researcher's description</text>
+<text x="690.0" y="190" text-anchor="middle" font-size="10.5" fill="#64748b">free text, capped at 6,000 characters</text>
+<rect x="520" y="220" width="340" height="54" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="690.0" y="244" text-anchor="middle" font-size="13" font-weight="700" fill="#0f2a4a">Guard</text>
+<text x="690.0" y="260" text-anchor="middle" font-size="10.5" fill="#64748b">regex scan · no model call · $0.00</text>
+<rect x="520" y="290" width="340" height="54" rx="8" fill="#0f2a4a" stroke="#0f2a4a" stroke-width="1.4"/>
+<text x="690.0" y="314" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Brief Agent</text>
+<text x="690.0" y="330" text-anchor="middle" font-size="10.5" fill="#b9cbe0">free text → structured ResearchBrief</text>
+<rect x="520" y="360" width="340" height="54" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="690.0" y="384" text-anchor="middle" font-size="13" font-weight="700" fill="#0f2a4a">Retrieval</text>
+<text x="690.0" y="400" text-anchor="middle" font-size="10.5" fill="#64748b">scores all 118 nodes in Python · keeps 12</text>
+<rect x="520" y="430" width="340" height="54" rx="8" fill="#0f2a4a" stroke="#0f2a4a" stroke-width="1.4"/>
+<text x="690.0" y="454" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Ranking Agent</text>
+<text x="690.0" y="470" text-anchor="middle" font-size="10.5" fill="#b9cbe0">ranks 12 condensed profiles</text>
+<rect x="520" y="500" width="340" height="54" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+<text x="690.0" y="524" text-anchor="middle" font-size="13" font-weight="700" fill="#0f2a4a">Ranked matches</text>
+<text x="690.0" y="540" text-anchor="middle" font-size="10.5" fill="#64748b">with sources, contacts and concerns</text>
+<line x1="690" y1="204" x2="690" y2="218" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arr)"/>
+<line x1="690" y1="274" x2="690" y2="288" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arr)"/>
+<line x1="690" y1="344" x2="690" y2="358" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arr)"/>
+<line x1="690" y1="414" x2="690" y2="428" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arr)"/>
+<line x1="690" y1="484" x2="690" y2="498" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arr)"/>
+</svg>

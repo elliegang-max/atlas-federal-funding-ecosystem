@@ -1,0 +1,18 @@
+# Never commit the real key. Atlas reads it from here or from a parent folder.
+.env
+
+# Local environment and editor state
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.claude/
+
+# The assignment brief — course material, not part of this app
+REQUIREMENTS.md
+
+# Note on what is deliberately NOT ignored:
+#   data/ecosystem.json        the built graph, so a fresh clone runs with no rebuild
+#   data/usage_log.jsonl       real token counts, cited as evidence in report.html
+#   data/build.log             the build transcript behind the $2.45 figure
+#   data/experiments/*.json    the sweep, fabrication probe and link-check results
