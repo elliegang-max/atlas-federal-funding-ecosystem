@@ -28,6 +28,32 @@
   li { margin-bottom:.18em; }
   a { color:var(--accent); }
 
+  .repo-banner {
+    border: 2px solid var(--navy, #0f2a4a);
+    border-radius: 6px;
+    padding: .55em .75em;
+    margin: 0 0 1.1em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.4;
+  }
+  .repo-banner .rb-label {
+    display: inline-block;
+    font-size: 7.8pt;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+    color: #64748b;
+    margin-right: .55em;
+  }
+  .repo-banner a {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 9.5pt;
+    font-weight: 600;
+    word-break: break-all;
+  }
+  .repo-banner .rb-note { display: block; color: #64748b; font-size: 8.5pt; margin-top: .2em; }
+
   .meta { font-size:9.5pt; line-height:1.6; border-left:3px solid var(--ink);
           padding:.05em 0 .05em .8em; margin:0 0 1em; }
   .meta .label { display:inline-block; min-width:4.6em; color:var(--muted); font-weight:600; }
@@ -85,6 +111,12 @@
 </style>
 </head>
 <body>
+
+<div class="repo-banner">
+  <span class="rb-label">Code &amp; app</span>
+  <a href="https://github.com/elliegang-max/atlas-federal-funding-ecosystem">github.com/elliegang-max/atlas-federal-funding-ecosystem</a>
+  <span class="rb-note">public repository &mdash; clone it, or read the README there</span>
+</div>
 
 <h1>Atlas</h1>
 <p class="subtitle">A map of the federal funding ecosystem for university spinouts<br>

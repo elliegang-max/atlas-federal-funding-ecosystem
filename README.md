@@ -1,5 +1,12 @@
 # Atlas — a map of the federal funding ecosystem for university spinouts
 
+> **Repository:** <https://github.com/elliegang-max/atlas-federal-funding-ecosystem>
+>
+> **MGT 409 final project — Ellie Gang.** This repo holds the app, the report
+> (`report.html`) and the slide deck (`slides.html`). Canvas accepts either a
+> URL or files but not both, so the link is repeated at the top of every
+> document.
+
 Atlas answers two questions that a university technology transfer office
 currently answers by browsing agency websites one at a time:
 
